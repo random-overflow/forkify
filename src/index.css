@@ -1,0 +1,20 @@
+/* ./src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-gradient-to-br from-corn to-froly text-dorado;
+    font-family: Nunito Sans;
+}
+
+button {
+    @apply bg-gradient-to-br from-corn to-froly text-white uppercase rounded-full px-7 py-3 flex items-center;
+}
+
+/*
+nav > button {
+    @apply bg-none text-dorado font-bold text-sm;
+}
+*/
+
