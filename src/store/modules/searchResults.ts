@@ -3,6 +3,7 @@ import recipesApi from "../../api/recipesApi";
 // initial state
 const state = () => ({
   results: [],
+  isSearching: false,
 });
 
 // getters
@@ -22,8 +23,10 @@ const getters = {
 // actions
 const actions = {
   async getRecipesResults({ commit }, query) {
+    commit("setSearching", true);
     const recipes = await recipesApi.getRecipes(query);
     commit("setResults", recipes);
+    commit("setSearching", false);
   },
 };
 
@@ -31,6 +34,9 @@ const actions = {
 const mutations = {
   setResults(state, recipes) {
     state.results = recipes;
+  },
+  setSearching(state, value) {
+    state.isSearching = value;
   },
 };
 
