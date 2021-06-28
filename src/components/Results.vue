@@ -42,7 +42,7 @@ export default {
     }),
     ...mapState({
       isSearching: (state) => state.searchResults.isSearching,
-      currentId: (state) => state.recipe.recipe.recipe_id,
+      currentId: (state) => state.recipe.recipe?.recipe_id,
     }),
   },
   methods: {
