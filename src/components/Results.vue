@@ -5,6 +5,7 @@
         <a
           href="#"
           class="flex flex-row hover:bg-wood py-3 px-7"
+          :class="[currentId == result.id ? 'bg-wood' : '']"
           @click="showRecipe(result.id)"
         >
           <img
@@ -22,7 +23,7 @@
       </li>
     </ul>
     <div v-else class="flex justify-center items-center">
-      <RefreshIcon class="h-10 w-10 mx-1 text-froly" />
+      <RefreshIcon class="h-10 w-10 mx-1 text-froly animate-spin" />
     </div>
   </div>
 </template>
@@ -41,6 +42,7 @@ export default {
     }),
     ...mapState({
       isSearching: (state) => state.searchResults.isSearching,
+      currentId: (state) => state.recipe.recipe.recipe_id,
     }),
   },
   methods: {

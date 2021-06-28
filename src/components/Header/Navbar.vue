@@ -1,14 +1,36 @@
 <template>
-  <nav>
-    <ul class="flex">
+  <nav class="h-full">
+    <ul class="flex h-full">
       <li>
-        <button class="bg-none text-dorado font-bold text-sm">
+        <button
+          class="
+            bg-none
+            text-dorado
+            font-bold
+            text-sm
+            rounded-none
+            h-full
+            hover:bg-ebb
+            hover:scale-100
+          "
+        >
           <PencilAltIcon class="h-7 w-7 mx-1 text-froly" />
           <span>Add Recipe</span>
         </button>
       </li>
       <li>
-        <button class="bg-none text-dorado font-bold text-sm">
+        <button
+          class="
+            bg-none
+            text-dorado
+            font-bold
+            text-sm
+            rounded-none
+            h-full
+            hover:bg-ebb
+            hover:scale-100
+          "
+        >
           <BookmarkIcon class="h-7 w-7 mx-1 text-froly" />
           <span>Bookmark</span>
         </button>
@@ -19,9 +41,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { PencilAltIcon, BookmarkIcon } from '@heroicons/vue/outline';
+import { PencilAltIcon, BookmarkIcon } from "@heroicons/vue/outline";
 
 export default defineComponent({
-  components: { PencilAltIcon, BookmarkIcon }
+  components: { PencilAltIcon, BookmarkIcon },
 });
 </script>

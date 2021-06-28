@@ -1,7 +1,7 @@
 <template>
   <div class="bg-wood">
     <div v-if="isSearching" class="flex justify-center items-center">
-      <RefreshIcon class="h-10 w-10 mx-1 text-froly" />
+      <RefreshIcon class="h-10 w-10 mx-1 text-froly animate-spin" />
     </div>
     <div v-else-if="recipe">
       <div class="relative h-96">
@@ -78,7 +78,7 @@
           This recipe was carefully designed and tested by Closet Cooking.
           Please check out directions at their website.
         </p>
-        <button>Directions</button>
+        <button>Directions <ArrowRightIcon class="ml-1 h-4 w-4" /></button>
       </div>
     </div>
     <div
@@ -103,6 +103,7 @@ import {
   PlusCircleIcon,
   MinusCircleIcon,
   CheckIcon,
+  ArrowRightIcon,
 } from "@heroicons/vue/outline";
 import { mapGetters, mapState } from "vuex";
 
@@ -117,6 +118,7 @@ export default defineComponent({
     PlusCircleIcon,
     MinusCircleIcon,
     CheckIcon,
+    ArrowRightIcon,
   },
   computed: {
     ...mapGetters({

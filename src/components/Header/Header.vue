@@ -10,7 +10,17 @@
     "
   >
     <img class="h-14 ml-5" src="../../assets/logo.png" alt="Forkify Logo" />
-    <form class="flex items-center bg-white rounded-full pl-12" action="#">
+    <form
+      class="
+        flex
+        items-center
+        bg-white
+        rounded-full
+        pl-12
+        focus-within:shadow-xl
+      "
+      action="#"
+    >
       <input
         class="w-80 border-none bg-none"
         type="text"
