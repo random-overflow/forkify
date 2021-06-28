@@ -20,6 +20,7 @@
         focus-within:shadow-xl
       "
       action="#"
+      @submit.prevent="search(query)"
     >
       <input
         class="w-80 border-none bg-none"
