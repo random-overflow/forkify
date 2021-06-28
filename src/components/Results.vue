@@ -2,7 +2,11 @@
   <div class="py-4">
     <ul v-if="!isSearching">
       <li v-for="result in results" :key="result.id">
-        <a href="#" class="flex flex-row hover:bg-wood py-3 px-7">
+        <a
+          href="#"
+          class="flex flex-row hover:bg-wood py-3 px-7"
+          @click="showRecipe(result.id)"
+        >
           <img
             :src="result.image_url"
             :alt="results.title"
@@ -24,7 +28,7 @@
 </template>
 
 <script>
-import { mapGetters, mapState } from "vuex";
+import { mapActions, mapGetters, mapState } from "vuex";
 import { RefreshIcon } from "@heroicons/vue/outline";
 
 export default {
@@ -36,7 +40,12 @@ export default {
       results: "searchResults/results",
     }),
     ...mapState({
-      isSearching: (state) => state.searchResults.isSearching, //"searchResults/isSearching",
+      isSearching: (state) => state.searchResults.isSearching,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      showRecipe: "recipe/getRecipe",
     }),
   },
 };

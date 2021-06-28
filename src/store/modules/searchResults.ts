@@ -8,8 +8,8 @@ const state = () => ({
 
 // getters
 const getters = {
-  results(state) {
-    return (state.results as [])?.map((result: any) => {
+  results(state: any) {
+    return (state.results as []).map((result: any) => {
       return {
         image_url: result.image_url,
         id: result.recipe_id,
@@ -22,9 +22,9 @@ const getters = {
 
 // actions
 const actions = {
-  async getRecipesResults({ commit }, query) {
+  async getRecipesResults({ commit }, query: string) {
     commit("setSearching", true);
-    const recipes = await recipesApi.getRecipes(query);
+    const recipes = await recipesApi.getRecipeResults(query);
     commit("setResults", recipes);
     commit("setSearching", false);
   },
@@ -32,10 +32,10 @@ const actions = {
 
 // mutations
 const mutations = {
-  setResults(state, recipes) {
+  setResults(state: any, recipes: []) {
     state.results = recipes;
   },
-  setSearching(state, value) {
+  setSearching(state: any, value: boolean) {
     state.isSearching = value;
   },
 };

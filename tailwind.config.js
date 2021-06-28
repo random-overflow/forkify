@@ -23,6 +23,9 @@ module.exports = {
       dorado: {
         DEFAULT: '#615551'
       },
+      ebb: {
+        DEFAULT: '#f2efee'
+      },
       white: colors.white,
     },
 
