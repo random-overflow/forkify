@@ -21,7 +21,7 @@ export default {
     return result;
   },
 
-  async getRecipe(id: string) {
+  async getRecipe(id: string): Promise<any> {
     let result = null;
     await axios
       .get("/get", {

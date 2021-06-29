@@ -18,7 +18,11 @@
           <span>Add Recipe</span>
         </button>
       </li>
-      <li class="relative">
+      <li
+        class="relative"
+        @mouseover="toggleBookmarks(true)"
+        @mouseleave="toggleBookmarks(false)"
+      >
         <button
           class="
             bg-none
@@ -30,8 +34,6 @@
             hover:bg-ebb
             hover:scale-100
           "
-          @mouseover="toggleBookmarks(true)"
-          @mouseleave="toggleBookmarks(false)"
         >
           <BookmarkIcon class="h-7 w-7 mx-1 text-froly" />
           <span>Bookmark</span>
