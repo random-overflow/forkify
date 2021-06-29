@@ -49,7 +49,18 @@
             <PlusCircleIcon class="h-7 w-7 text-froly" />
           </div>
         </div>
-        <button class="p-2 rounded-full ml-auto">
+        <button
+          v-if="isBookmarked"
+          @click="removeBookmark(recipe.recipe_id)"
+          class="p-2 rounded-full ml-auto"
+        >
+          <BookmarkSolidIcon class="h-7 w-7" />
+        </button>
+        <button
+          v-else
+          @click="addBookmark(recipe.recipe_id)"
+          class="p-2 rounded-full ml-auto"
+        >
           <BookmarkIcon class="h-7 w-7" />
         </button>
       </div>
@@ -105,12 +116,16 @@ import {
   CheckIcon,
   ArrowRightIcon,
 } from "@heroicons/vue/outline";
-import { mapGetters, mapState } from "vuex";
+import { BookmarkIcon as BookmarkSolidIcon } from "@heroicons/vue/solid";
+import { mapActions, mapGetters, mapState } from "vuex";
+import recipe from "../store/modules/recipe";
+import store from "../store";
 
 export default defineComponent({
   components: {
     PencilAltIcon,
     BookmarkIcon,
+    BookmarkSolidIcon,
     EmojiHappyIcon,
     RefreshIcon,
     ClockIcon,
@@ -123,9 +138,16 @@ export default defineComponent({
   computed: {
     ...mapGetters({
       recipe: "recipe/recipe",
+      isBookmarked: "bookmarks/isBookmarked",
     }),
     ...mapState({
       isSearching: (state: any) => state.recipe.isSearching,
+    }),
+  },
+  methods: {
+    ...mapActions({
+      addBookmark: "bookmarks/addBookmark",
+      removeBookmark: "bookmarks/removeBookmark",
     }),
   },
 });
