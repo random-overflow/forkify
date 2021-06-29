@@ -51,16 +51,12 @@
         </div>
         <button
           v-if="isBookmarked"
-          @click="removeBookmark(recipe.recipe_id)"
+          @click="removeBookmark()"
           class="p-2 rounded-full ml-auto"
         >
           <BookmarkSolidIcon class="h-7 w-7" />
         </button>
-        <button
-          v-else
-          @click="addBookmark(recipe.recipe_id)"
-          class="p-2 rounded-full ml-auto"
-        >
+        <button v-else @click="addBookmark()" class="p-2 rounded-full ml-auto">
           <BookmarkIcon class="h-7 w-7" />
         </button>
       </div>

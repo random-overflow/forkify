@@ -42,7 +42,7 @@ export default {
       isEmpty: "bookmarks/isEmpty",
     }),
     ...mapState({
-      bookmarks: (state: any) => state.bookmarks.recipes_details,
+      bookmarks: (state: any) => state.bookmarks.recipes,
       currentId: (state: any) => state.recipe.recipe?.recipe_id,
     }),
   },
