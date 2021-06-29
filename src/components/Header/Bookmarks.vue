@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute w-96 bg-white py-12 px-8 right-0">
+  <div class="absolute w-96 bg-white py-12 px-8 right-0 z-10">
     <div class="flex flex-row">
       <ExclamationIcon class="h-7 w-7 mx-1 text-froly" />
       <p>No bookmarks yet. Find a nice recipe and bookmark it ;)</p>
