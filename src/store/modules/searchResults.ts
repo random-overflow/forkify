@@ -9,14 +9,7 @@ const state = () => ({
 // getters
 const getters = {
   results(state: any) {
-    return (state.results as []).map((result: any) => {
-      return {
-        image_url: result.image_url,
-        id: result.recipe_id,
-        title: result.title,
-        publisher: result.publisher,
-      };
-    });
+    return state.results;
   },
 };
 
