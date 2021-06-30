@@ -4,12 +4,23 @@ import recipesApi from "../../api/recipesApi";
 const state = () => ({
   results: [],
   isSearching: false,
+  page: 1,
+  maxResPerPage: 10,
 });
 
 // getters
 const getters = {
-  results(state: any) {
-    return state.results;
+  results(state: any): any {
+    return (state.results as []).slice(
+      state.page * state.maxResPerPage - state.maxResPerPage,
+      state.page * state.maxResPerPage
+    );
+  },
+  existNextPage(state: any): boolean {
+    return state.page * state.maxResPerPage < state.results.length;
+  },
+  existPrevPage(state: any): boolean {
+    return state.page * state.maxResPerPage > state.maxResPerPage;
   },
 };
 
@@ -21,6 +32,12 @@ const actions = {
     commit("setResults", recipes);
     commit("setSearching", false);
   },
+  nextPage({ commit }) {
+    commit("nextPage");
+  },
+  prevPage({ commit }) {
+    commit("prevPage");
+  },
 };
 
 // mutations
@@ -30,6 +47,12 @@ const mutations = {
   },
   setSearching(state: any, value: boolean) {
     state.isSearching = value;
+  },
+  nextPage(state: any) {
+    state.page++;
+  },
+  prevPage(state: any) {
+    state.page--;
   },
 };
 

@@ -27,6 +27,7 @@ module.exports = {
         DEFAULT: '#f2efee'
       },
       white: colors.white,
+      black: colors.black
     },
 
     fontFamily: {
