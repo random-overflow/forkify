@@ -4,7 +4,7 @@
       <RefreshIcon class="h-10 w-10 mx-1 text-froly animate-spin" />
     </div>
     <div v-else-if="recipe">
-      <div class="relative h-96">
+      <div class="recipeimg relative h-96">
         <img
           :src="recipe.image_url"
           :alt="recipe.title"

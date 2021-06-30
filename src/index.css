@@ -12,6 +12,16 @@ button {
   @apply bg-gradient-to-br from-corn to-froly text-white uppercase rounded-full px-7 py-3 transform hover:scale-105 duration-200 flex items-center;
 }
 
+.recipeimg::before {
+  content: "";
+  @apply absolute bg-gradient-to-br from-corn to-froly h-full w-full opacity-60;
+}
+
+.recipeimg--rounded::before {
+  content: "";
+  @apply absolute bg-gradient-to-br from-corn to-froly h-full w-full opacity-60 rounded-full;
+}
+
 /*
 nav > button {
     @apply bg-none text-dorado font-bold text-sm;

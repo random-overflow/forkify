@@ -8,11 +8,14 @@
           :class="[currentId == result.recipe_id ? 'bg-wood' : '']"
           @click="showRecipe(result.recipe_id)"
         >
-          <img
-            :src="result.image_url"
-            :alt="result.title"
-            class="h-14 w-14 mr-6 rounded-full"
-          />
+          <div class="recipeimg--rounded relative h-14 w-14 mr-6 flex-shrink-0">
+            <img
+              :src="result.image_url"
+              :alt="result.title"
+              class="h-14 w-14 rounded-full object-cover"
+            />
+          </div>
+
           <div class="flex flex-col">
             <h4 class="text-froly">
               {{ result.title }}
