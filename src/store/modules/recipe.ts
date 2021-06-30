@@ -1,4 +1,4 @@
-import recipesApi from "../../api/recipesApi";
+import recipesApi, { Recipe } from "../../api/recipesApi";
 
 // initial state
 const state = () => ({
@@ -8,7 +8,7 @@ const state = () => ({
 
 // getters
 const getters = {
-  recipe(state: any) {
+  recipe(state: any): Recipe {
     return state.recipe;
   },
 };

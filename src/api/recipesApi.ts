@@ -2,9 +2,23 @@ import axios from "axios";
 
 const baseURL: string = "https://forkify-api.herokuapp.com/api";
 
+export interface RecipeResult {
+  publisher: string;
+  title: string;
+  source_url: string;
+  recipe_id: string;
+  image_url: string;
+  social_rank: number;
+  publisher_url: string;
+}
+
+export interface Recipe extends RecipeResult {
+  ingredients: string[];
+}
+
 export default {
-  async getRecipeResults(query: string) {
-    let result = null;
+  async getRecipeResults(query: string): Promise<RecipeResult[]> {
+    let result: RecipeResult[] = [];
     await axios
       .get("/search", {
         baseURL: baseURL,
@@ -21,8 +35,8 @@ export default {
     return result;
   },
 
-  async getRecipe(id: string): Promise<any> {
-    let result = null;
+  async getRecipe(id: string): Promise<Recipe[]> {
+    let result: Recipe[] = [];
     await axios
       .get("/get", {
         baseURL: baseURL,
