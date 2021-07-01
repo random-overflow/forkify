@@ -6,14 +6,20 @@
   <div
     class="
       fixed
-      top-1/2
-      left-1/2
-      min-w-max
+      top-0
+      md:top-1/2
+      left-0
+      md:left-1/2
+      w-screen
+      md:max-w-max
+      h-screen
+      md:h-auto
       bg-white
-      transform
-      -translate-x-1/2 -translate-y-1/2
+      md:transform
+      md:-translate-x-1/2 md:-translate-y-1/2
       p-16
       z-20
+      overflow-y-scroll
     "
   >
     <button
@@ -23,11 +29,13 @@
       x
     </button>
     <form
-      class="grid grid-cols-2 gap-x-9 gap-y-14"
+      class="grid grid-cols-2 gap-x-9 gap-y-6 md:gap-y-14"
       action="#"
       @submit.prevent="addRecipe(userRecipe)"
     >
-      <div class="grid grid-cols-6 gap-y-3 items-center">
+      <div
+        class="col-span-2 md:col-span-1 grid grid-cols-6 gap-y-3 items-center"
+      >
         <h3 class="col-span-6 uppercase text-xl font-bold">Recipe Data</h3>
         <label class="col-span-2">Title</label>
         <input class="col-span-4" type="text" v-model="userRecipe.title" />
@@ -48,7 +56,9 @@
           v-model.number="userRecipe.prep_time"
         />
       </div>
-      <div class="grid grid-cols-6 gap-y-3 items-center">
+      <div
+        class="col-span-2 md:col-span-1 grid grid-cols-6 gap-y-3 items-center"
+      >
         <h3 class="col-span-6 uppercase text-xl font-bold">Ingredient</h3>
         <template v-for="index in 5" :key="index">
           <label class="col-span-2">Ingredient {{ index }}</label>
