@@ -13,7 +13,8 @@
         <h1
           class="
             py-3
-            w-1/2
+            w-full
+            md:w-1/2
             transform
             -skew-y-6
             -translate-x-1/2
@@ -34,7 +35,7 @@
           <span class="py-3 px-5 decoration-clone">{{ recipe.title }}</span>
         </h1>
       </div>
-      <div class="flex flex-row pt-14 pb-8 px-14">
+      <div class="flex flex-col gap-y-4 sm:flex-row pt-14 pb-8 px-4 sm:px-14">
         <div class="flex flex-row items-center pr-11">
           <ClockIcon class="h-7 w-7 mx-2 text-froly" />
           <span class="font-bold mr-1">{{
@@ -66,7 +67,7 @@
         <h1 class="uppercase text-center text-froly font-bold text-xl mb-8">
           Recipe ingredients
         </h1>
-        <ul class="grid grid-cols-2 gap-6">
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <li
             v-for="ingredient in recipe.ingredients"
             :key="ingredient"
@@ -87,7 +88,9 @@
           This recipe was carefully designed and tested by Closet Cooking.
           Please check out directions at their website.
         </p>
-        <button>Directions <ArrowRightIcon class="ml-1 h-4 w-4" /></button>
+        <button class="my-4">
+          Directions <ArrowRightIcon class="ml-1 h-4 w-4" />
+        </button>
       </div>
     </div>
     <div

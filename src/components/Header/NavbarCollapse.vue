@@ -3,7 +3,7 @@
     class="
       absolute
       w-full
-      bg-white
+      bg-wood
       py-1
       top-24
       right-0
