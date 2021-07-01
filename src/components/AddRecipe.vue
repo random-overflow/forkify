@@ -44,7 +44,7 @@
         <input
           class="col-span-4"
           type="number"
-          v-model="userRecipe.image_url"
+          v-model.number="userRecipe.prep_time"
         />
       </div>
       <div class="grid grid-cols-6 gap-y-3 items-center">
@@ -70,7 +70,7 @@ import { mapActions } from "vuex";
 import { Recipe } from "../api/recipesApi";
 export default {
   data: () => {
-    let userRecipe: Recipe = { ingredients: [] };
+    let userRecipe: Recipe = { ingredients: [], prep_time: 0 };
     return {
       userRecipe,
     };

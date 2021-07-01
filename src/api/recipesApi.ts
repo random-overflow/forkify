@@ -15,7 +15,7 @@ export interface RecipeResult {
 
 export interface Recipe extends RecipeResult {
   ingredients: string[];
-  prep_time?: number;
+  prep_time: number;
 }
 
 export default {
