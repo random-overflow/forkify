@@ -52,7 +52,7 @@
     </ul>
   </nav>
   <button
-    class="md:hidden relative bg-none text-dorado"
+    class="md:hidden absolute right-0 sm:relative bg-none text-dorado"
     @click="collapseNav = !collapseNav"
   >
     <MenuIcon class="h-7 w-7" />

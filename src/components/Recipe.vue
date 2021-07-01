@@ -12,11 +12,13 @@
         />
         <h1
           class="
-            py-3
+            py-6
+            md:py-3
             w-full
             md:w-1/2
             transform
-            -skew-y-6
+            -skew-y-3
+            md:-skew-y-6
             -translate-x-1/2
             translate-y-1/4
             text-center
@@ -32,7 +34,9 @@
             text-white
           "
         >
-          <span class="py-3 px-5 decoration-clone">{{ recipe.title }}</span>
+          <span class="py-6 md:py-3 px-5 decoration-clone">
+            {{ recipe.title }}
+          </span>
         </h1>
       </div>
       <div class="flex flex-col gap-y-4 sm:flex-row pt-14 pb-8 px-4 sm:px-14">
@@ -53,14 +57,11 @@
           </div>
         </div>
         <button
-          v-if="isBookmarked"
-          @click="removeBookmark()"
-          class="p-2 rounded-full ml-auto"
+          @click="isBookmarked ? removeBookmark() : addBookmark()"
+          class="p-6 md:p-2 rounded-full ml-auto"
         >
-          <BookmarkSolidIcon class="h-7 w-7" />
-        </button>
-        <button v-else @click="addBookmark()" class="p-2 rounded-full ml-auto">
-          <BookmarkIcon class="h-7 w-7" />
+          <BookmarkSolidIcon v-if="isBookmarked" class="h-7 w-7" />
+          <BookmarkIcon v-else class="h-7 w-7" />
         </button>
       </div>
       <div class="flex flex-col justify-center items-center bg-ebb px-14 py-10">
@@ -119,8 +120,6 @@ import {
 } from "@heroicons/vue/outline";
 import { BookmarkIcon as BookmarkSolidIcon } from "@heroicons/vue/solid";
 import { mapActions, mapGetters, mapState } from "vuex";
-import recipe from "../store/modules/recipe";
-import store from "../store";
 
 export default defineComponent({
   components: {

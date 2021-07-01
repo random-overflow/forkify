@@ -2,7 +2,8 @@
   <div
     class="
       flex flex-flex-row
-      justify-between
+      justify-center
+      sm:justify-between
       items-center
       bg-wood
       h-24
@@ -10,7 +11,7 @@
     "
   >
     <img
-      class="h-14 sm:ml-5 m-auto"
+      class="h-14 sm:ml-5 transform"
       src="../../assets/logo.png"
       alt="Forkify Logo"
     />
