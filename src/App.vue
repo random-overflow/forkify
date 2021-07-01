@@ -14,7 +14,12 @@
     "
   >
     <Header class="col-span-3" />
-    <Results class="col-span-3 md:col-span-1" />
+    <template v-if="results.length > 0">
+      <Results class="col-span-3 md:col-span-1" />
+    </template>
+    <template v-if="results.length == 0">
+      <Results class="hidden md:block col-span-3 md:col-span-1" />
+    </template>
     <Recipe class="col-span-3 md:col-span-2" />
   </div>
   <AddRecipe v-if="showModal" />
@@ -27,7 +32,7 @@ import Header from "./components/Header/Header.vue";
 import Results from "./components/Results.vue";
 import Recipe from "./components/Recipe.vue";
 import AddRecipe from "./components/AddRecipe.vue";
-import { mapState } from "vuex";
+import { mapGetters, mapState } from "vuex";
 
 export default defineComponent({
   name: "App",
@@ -41,6 +46,9 @@ export default defineComponent({
   computed: {
     ...mapState({
       showModal: (state: any) => state.userRecipes.showModal,
+    }),
+    ...mapGetters({
+      results: "searchResults/results",
     }),
   },
 });
