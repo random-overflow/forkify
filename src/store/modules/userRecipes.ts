@@ -30,6 +30,10 @@ const mutations = {
   },
   addRecipe(state: any, recipe: Recipe) {
     recipe.isUserRecipe = true;
+    recipe.recipe_id = state.recipes.length.toString();
+    recipe.ingredients = recipe.ingredients.filter(
+      (ingredient) => ingredient != ""
+    );
     (state.recipes as Recipe[]).push(recipe);
   },
 };

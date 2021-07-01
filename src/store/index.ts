@@ -7,10 +7,10 @@ import { createStore } from "vuex";
 
 const store = createStore({
   modules: {
+    userRecipes,
     searchResults,
     recipe,
     bookmarks,
-    userRecipes,
   },
 });
 

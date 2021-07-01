@@ -6,7 +6,12 @@
           href="#"
           class="flex flex-row hover:bg-wood py-3 px-7"
           :class="[currentId == result.recipe_id ? 'bg-wood' : '']"
-          @click="showRecipe(result.recipe_id)"
+          @click="
+            showRecipe({
+              id: result.recipe_id,
+              isUserRecipe: result.isUserRecipe,
+            })
+          "
         >
           <div class="recipeimg--rounded relative h-14 w-14 mr-6 flex-shrink-0">
             <img
@@ -34,6 +39,7 @@
 <script lang="ts">
 import { mapActions, mapState } from "vuex";
 import { RefreshIcon } from "@heroicons/vue/outline";
+import { Recipe } from "../api/recipesApi";
 
 export default {
   components: {

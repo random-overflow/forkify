@@ -15,9 +15,14 @@ const getters = {
 
 // actions
 const actions = {
-  async getRecipe({ commit }, id: string) {
+  async getRecipe({ commit, rootState }, { id, isUserRecipe }) {
+    let recipe: Recipe | null;
     commit("setSearching", true);
-    const recipe: Recipe[] = await recipesApi.getRecipe(id);
+    recipe = isUserRecipe
+      ? rootState.userRecipes.recipes.find(
+          (recipe: Recipe) => recipe.recipe_id == id
+        )
+      : await recipesApi.getRecipe(id);
     commit("setRecipe", recipe);
     commit("setSearching", false);
   },

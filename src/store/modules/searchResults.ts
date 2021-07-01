@@ -1,4 +1,4 @@
-import recipesApi from "../../api/recipesApi";
+import recipesApi, { Recipe, RecipeResult } from "../../api/recipesApi";
 
 // initial state
 const state = () => ({
@@ -11,11 +11,9 @@ const state = () => ({
 // getters
 const getters = {
   results(state: any, getters: any, rootState: any): any {
-    return rootState.userRecipes.recipes.concat(
-      (state.results as []).slice(
-        state.page * state.maxResPerPage - state.maxResPerPage,
-        state.page * state.maxResPerPage
-      )
+    return (state.results as []).slice(
+      state.page * state.maxResPerPage - state.maxResPerPage,
+      state.page * state.maxResPerPage
     );
   },
   existNextPage(state: any): boolean {
@@ -28,9 +26,17 @@ const getters = {
 
 // actions
 const actions = {
-  async getRecipesResults({ commit }, query: string) {
+  async getRecipesResults({ commit, rootState }, query: string) {
     commit("setSearching", true);
-    const recipes = await recipesApi.getRecipeResults(query);
+    let recipes: RecipeResult[] | Recipe[] = await recipesApi.getRecipeResults(
+      query
+    );
+    recipes = [
+      ...(rootState.userRecipes.recipes as Recipe[]).filter((recipe) =>
+        recipe.title?.includes(query)
+      ),
+      ...recipes,
+    ];
     commit("setResults", recipes);
     commit("setSearching", false);
   },

@@ -37,7 +37,9 @@
       <div class="flex flex-row pt-14 pb-8 px-14">
         <div class="flex flex-row items-center pr-11">
           <ClockIcon class="h-7 w-7 mx-2 text-froly" />
-          <span class="font-bold mr-1">N</span>
+          <span class="font-bold mr-1">{{
+            recipe.prep_time != undefined ? recipe.prep_time : "N"
+          }}</span>
           <span class="uppercase"> Minutes</span>
         </div>
         <div class="flex flex-row items-center">
