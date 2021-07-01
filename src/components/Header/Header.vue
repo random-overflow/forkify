@@ -9,28 +9,42 @@
       rounded-lg
     "
   >
-    <img class="h-14 ml-5" src="../../assets/logo.png" alt="Forkify Logo" />
+    <img
+      class="h-14 sm:ml-5 m-auto"
+      src="../../assets/logo.png"
+      alt="Forkify Logo"
+    />
     <form
       class="
-        flex
+        hidden
+        sm:flex
         items-center
         bg-white
         rounded-full
-        pl-12
+        pl-4
+        xl:pl-12
         focus-within:shadow-xl
       "
       action="#"
       @submit.prevent="search(query)"
     >
       <input
-        class="w-80 border-none bg-none"
+        class="
+          flex-shrink
+          sm:w-full
+          md:w-64
+          lg:w-72
+          xl:w-80
+          border-none
+          bg-none
+        "
         type="text"
         placeholder="Search over 1,000,000 recipes..."
         v-model="query"
       />
-      <button class="font-semibold" @click="search(query)">
+      <button class="font-semibold px-4 lg:px-7" @click="search(query)">
         <SearchIcon class="h-6 w-6 mx-1 text-white" />
-        Search
+        <div class="hidden lg:block">Search</div>
       </button>
     </form>
     <Navbar />
