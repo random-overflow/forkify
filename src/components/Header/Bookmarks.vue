@@ -1,7 +1,7 @@
 <template>
   <div
+    :class="{ absolute: absolute }"
     class="w-full md:w-96 bg-ebb md:bg-white py-1 right-0 z-10"
-    :class="absolute ? 'absolute' : ''"
   >
     <div v-if="isEmpty" class="flex flex-row py-11 px-8">
       <ExclamationIcon class="h-7 w-7 mx-1 text-froly" />
