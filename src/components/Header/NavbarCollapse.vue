@@ -58,7 +58,7 @@
       />
       <ChevronDownIcon v-else class="absolute right-8 h-7 w-7 text-dorado" />
     </button>
-    <Bookmarks v-show="showBookmarks" class="md:hidden" />
+    <Bookmarks v-show="showBookmarks" class="md:hidden" :absolute="false" />
   </div>
 </template>
 
