@@ -1,17 +1,5 @@
 <template>
-  <div
-    class="
-      absolute
-      w-full
-      bg-wood
-      py-1
-      top-24
-      right-0
-      z-10
-      border-b-8 border-froly
-      shadow-2xl
-    "
-  >
+  <div class="absolute w-full bg-wood pt-1 top-24 right-0 z-10 shadow-2xl">
     <SearchForm class="sm:hidden" />
     <button
       class="
@@ -59,6 +47,7 @@
       <ChevronDownIcon v-else class="absolute right-8 h-7 w-7 text-dorado" />
     </button>
     <Bookmarks v-show="showBookmarks" class="md:hidden" :absolute="false" />
+    <div class="m-0 py-1 w-full bg-gradient-to-br from-corn to-froly"></div>
   </div>
 </template>
 
