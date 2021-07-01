@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col">
     <RecipesList :recipes="results" />
-    <div class="flex flex-row justify-evenly px-6">
+    <div class="flex flex-row justify-evenly px-6 py-8">
       <button
         v-if="existsPrevPage"
         @click="prevPage()"

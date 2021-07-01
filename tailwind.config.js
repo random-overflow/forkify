@@ -6,10 +6,10 @@ module.exports = {
   theme: {
     extend: {
       gridTemplateRows: {
-        'layout': '6rem minmax(100rem,auto)'
+        'layout': '6rem minmax(100vh,auto)'
       }
     },
-    
+
     colors: {
       corn: {
         DEFAULT: '#fbdb89'

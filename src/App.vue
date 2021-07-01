@@ -2,19 +2,20 @@
   <div
     class="
       container
-      mx-auto
-      my-16
+      m-0
+      lg:mx-auto
+      xl:my-16
       grid grid-cols-3 grid-rows-layout
       bg-white
-      min-h-screen
+      min-h-0
       max-w-7xl
       rounded-lg
       shadow-xl
     "
   >
     <Header class="col-span-3" />
-    <Results class="col-span-1" />
-    <Recipe class="col-span-2" />
+    <Results class="col-span-3 md:col-span-1" />
+    <Recipe class="col-span-3 md:col-span-2" />
   </div>
   <AddRecipe v-if="showModal" />
 </template>
