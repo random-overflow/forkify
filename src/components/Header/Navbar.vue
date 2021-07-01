@@ -13,6 +13,7 @@
             hover:bg-ebb
             hover:scale-100
           "
+          @click="toggleModal()"
         >
           <PencilAltIcon class="h-7 w-7 mx-1 text-froly" />
           <span>Add Recipe</span>
@@ -45,12 +46,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
 import { PencilAltIcon, BookmarkIcon } from "@heroicons/vue/outline";
 import { mapActions, mapState } from "vuex";
 import Bookmarks from "./Bookmarks.vue";
 
-export default defineComponent({
+export default {
   components: { PencilAltIcon, BookmarkIcon, Bookmarks },
   computed: {
     ...mapState({
@@ -60,7 +60,8 @@ export default defineComponent({
   methods: {
     ...mapActions({
       toggleBookmarks: "bookmarks/toggleBookmarks",
+      toggleModal: "userRecipes/toggleModal",
     }),
   },
-});
+};
 </script>

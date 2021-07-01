@@ -3,17 +3,19 @@ import axios from "axios";
 const baseURL: string = "https://forkify-api.herokuapp.com/api";
 
 export interface RecipeResult {
-  publisher: string;
-  title: string;
-  source_url: string;
-  recipe_id: string;
-  image_url: string;
-  social_rank: number;
-  publisher_url: string;
+  publisher?: string;
+  title?: string;
+  source_url?: string;
+  recipe_id?: string;
+  image_url?: string;
+  social_rank?: number;
+  publisher_url?: string;
+  isUserRecipe?: boolean;
 }
 
 export interface Recipe extends RecipeResult {
   ingredients: string[];
+  prep_time?: number;
 }
 
 export default {

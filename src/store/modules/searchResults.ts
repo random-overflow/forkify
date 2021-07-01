@@ -10,10 +10,12 @@ const state = () => ({
 
 // getters
 const getters = {
-  results(state: any): any {
-    return (state.results as []).slice(
-      state.page * state.maxResPerPage - state.maxResPerPage,
-      state.page * state.maxResPerPage
+  results(state: any, getters: any, rootState: any): any {
+    return rootState.userRecipes.recipes.concat(
+      (state.results as []).slice(
+        state.page * state.maxResPerPage - state.maxResPerPage,
+        state.page * state.maxResPerPage
+      )
     );
   },
   existNextPage(state: any): boolean {

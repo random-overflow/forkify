@@ -16,6 +16,7 @@
     <Results class="col-span-1" />
     <Recipe class="col-span-2" />
   </div>
+  <AddRecipe v-if="showModal" />
 </template>
 
 <script lang="ts">
@@ -24,6 +25,8 @@ import HelloWorld from "./components/HelloWorld.vue";
 import Header from "./components/Header/Header.vue";
 import Results from "./components/Results.vue";
 import Recipe from "./components/Recipe.vue";
+import AddRecipe from "./components/AddRecipe.vue";
+import { mapState } from "vuex";
 
 export default defineComponent({
   name: "App",
@@ -32,6 +35,12 @@ export default defineComponent({
     Header,
     Results,
     Recipe,
+    AddRecipe,
+  },
+  computed: {
+    ...mapState({
+      showModal: (state: any) => state.userRecipes.showModal,
+    }),
   },
 });
 </script>

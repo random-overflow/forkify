@@ -2,7 +2,7 @@ import recipesApi, { Recipe } from "../../api/recipesApi";
 
 // initial state
 const state = () => ({
-  recipe: null,
+  recipe: null as Recipe | null,
   isSearching: false,
 });
 
@@ -17,7 +17,7 @@ const getters = {
 const actions = {
   async getRecipe({ commit }, id: string) {
     commit("setSearching", true);
-    const recipe = await recipesApi.getRecipe(id);
+    const recipe: Recipe[] = await recipesApi.getRecipe(id);
     commit("setRecipe", recipe);
     commit("setSearching", false);
   },
@@ -25,7 +25,7 @@ const actions = {
 
 // mutations
 const mutations = {
-  setRecipe(state: any, recipe: any) {
+  setRecipe(state: any, recipe: Recipe[]) {
     state.recipe = recipe;
   },
   setSearching(state: any, value: boolean) {
