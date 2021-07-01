@@ -20,8 +20,8 @@ const getters = {
 
 // actions
 const actions = {
-  toggleBookmarks({ commit }, value: boolean): void {
-    commit("setShowBookmarks", value);
+  toggleBookmarks({ commit }, value?: boolean): void {
+      commit("setShowBookmarks", value);
   },
   addBookmark({ commit, rootState }): void {
     commit("addBookmark", rootState.recipe.recipe);
@@ -33,8 +33,8 @@ const actions = {
 
 // mutations
 const mutations = {
-  setShowBookmarks(state: any, value: boolean) {
-    state.showBookmarks = value;
+  setShowBookmarks(state: any, value?: boolean) {
+    state.showBookmarks = value != undefined ? value : !state.showBookmarks;
   },
   addBookmark(state: any, recipe: any) {
     state.recipes.push(recipe);

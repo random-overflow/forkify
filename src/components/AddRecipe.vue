@@ -1,6 +1,6 @@
 <template>
   <div
-    class="fixed top-0 left-0 h-screen w-screen bg-black opacity-60"
+    class="fixed top-0 left-0 h-screen w-screen bg-black opacity-60 z-20"
     @click="toggleModal()"
   ></div>
   <div
@@ -13,6 +13,7 @@
       transform
       -translate-x-1/2 -translate-y-1/2
       p-16
+      z-20
     "
   >
     <button

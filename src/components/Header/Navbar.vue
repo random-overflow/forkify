@@ -51,18 +51,34 @@
       </li>
     </ul>
   </nav>
-  <button class="md:hidden bg-none text-dorado">
+  <button
+    class="md:hidden relative bg-none text-dorado"
+    @click="collapseNav = !collapseNav"
+  >
     <MenuIcon class="h-7 w-7" />
   </button>
+  <NavbarCollapse v-show="!collapseNav" />
 </template>
 
 <script lang="ts">
 import { PencilAltIcon, BookmarkIcon, MenuIcon } from "@heroicons/vue/outline";
 import { mapActions, mapState } from "vuex";
 import Bookmarks from "./Bookmarks.vue";
+import NavbarCollapse from "./NavbarCollapse.vue";
 
 export default {
-  components: { PencilAltIcon, BookmarkIcon, MenuIcon, Bookmarks },
+  components: {
+    PencilAltIcon,
+    BookmarkIcon,
+    MenuIcon,
+    Bookmarks,
+    NavbarCollapse,
+  },
+  data: () => {
+    return {
+      collapseNav: true,
+    };
+  },
   computed: {
     ...mapState({
       showBookmarks: (state: any) => state.bookmarks.showBookmarks,
