@@ -55,13 +55,25 @@
     class="md:hidden absolute right-0 sm:relative bg-none text-dorado"
     @click="collapseNav = !collapseNav"
   >
-    <MenuIcon class="h-7 w-7" />
+    <MenuIcon v-if="collapseNav" class="h-7 w-7" />
+    <XIcon v-else class="h-7 w-7" />
   </button>
-  <NavbarCollapse v-show="!collapseNav" />
+  <div class="absolute top-24" v-show="!collapseNav">
+    <NavbarCollapse />
+    <div
+      class="left-0 h-screen w-screen bg-black opacity-20 z-10"
+      @click="collapseNav = !collapseNav"
+    ></div>
+  </div>
 </template>
 
 <script lang="ts">
-import { PencilAltIcon, BookmarkIcon, MenuIcon } from "@heroicons/vue/outline";
+import {
+  PencilAltIcon,
+  BookmarkIcon,
+  MenuIcon,
+  XIcon,
+} from "@heroicons/vue/outline";
 import { mapActions, mapState } from "vuex";
 import Bookmarks from "./Bookmarks.vue";
 import NavbarCollapse from "./NavbarCollapse.vue";
@@ -71,6 +83,7 @@ export default {
     PencilAltIcon,
     BookmarkIcon,
     MenuIcon,
+    XIcon,
     Bookmarks,
     NavbarCollapse,
   },

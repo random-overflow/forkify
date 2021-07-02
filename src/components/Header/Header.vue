@@ -22,7 +22,6 @@
 
 <script lang="ts">
 import Navbar from "./Navbar.vue";
-import { mapActions } from "vuex";
 import SearchForm from "./SearchForm.vue";
 
 export default {

@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute w-full bg-wood pt-1 top-24 right-0 z-10 shadow-2xl">
+  <div class="absolute w-full bg-wood pt-1 right-0 z-10 shadow-2xl">
     <SearchForm class="sm:hidden" />
     <button
       class="
