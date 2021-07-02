@@ -58,7 +58,7 @@
     <MenuIcon v-if="collapseNav" class="h-7 w-7" />
     <XIcon v-else class="h-7 w-7" />
   </button>
-  <div class="absolute top-24" v-show="!collapseNav">
+  <div class="md:hidden absolute top-24" v-show="!collapseNav">
     <NavbarCollapse />
     <div
       class="left-0 h-screen w-screen bg-black opacity-20 z-10"
